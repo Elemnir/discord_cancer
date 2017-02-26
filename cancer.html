@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Regional Indicator Discord Message Generator</title>
+    <script>
+      function doit(e) {
+        e.preventDefault();
+        var msg = document.getElementById("msg_box").value.toLowerCase();
+        var result = "";
+        for (var i in msg) {
+          if (msg[i] == ' ') { result += "   ";  } 
+          else if (msg[i] == '.') { result += ":papa:"; } 
+          else if (msg[i] == '!') { result += ":bangbang:"; } 
+          else if (msg[i] == '?') { result += ":interrobang:"; } 
+          else { result += ":regional_indicator_" + msg[i] + ": "; }
+        }
+        document.getElementById("res_box").value = result;
+      }
+    </script>
+  </head>
+  <body>
+    <form onsubmit="doit(event)">
+      <label for="msg_box">Message:</label><br>
+      <textarea id="msg_box" rows="5" cols="50"></textarea>
+      <br><br>
+      <input type="submit" value="Generate Cancer">
+      <br><br>
+      <label for="res_box">Result:</label><br>
+      <textarea id="res_box" rows="5" cols="50"></textarea>
+    </form>
+
+  </body>
+</html>
